@@ -9,6 +9,11 @@
             "UnauthRoleName": "sunriver-display-prod-20190928191906-unauthRole",
             "StackName": "sunriver-display-prod-20190928191906",
             "StackId": "arn:aws:cloudformation:us-west-2:357882471324:stack/sunriver-display-prod-20190928191906/83c7a320-e25f-11e9-af6c-06e601cb709c"
+        },
+        "categories": {
+            "auth": {
+                "sunriverdisplay47c54548": {}
+            }
         }
     }
 }

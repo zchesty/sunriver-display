@@ -1,1 +1,15 @@
-{}
+{
+	"auth": {
+		"sunriverdisplay47c54548": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"storage": {
+		"sunriverDisplayCognito": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}
