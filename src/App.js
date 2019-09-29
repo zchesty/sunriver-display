@@ -18,7 +18,7 @@ Storage.list('public/')
     .then(result => console.log(result))
     .catch(err => console.log(err));
 
-Storage.get('requirements.txt')
+Storage.get('8_towhee_2019-09-28_19_20_29.jpg')
     .then(result => console.log(result))
     .catch(err => console.log(err));
 
