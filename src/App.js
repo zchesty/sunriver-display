@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Auth, Storage } from 'aws-amplify';
+import { S3Image } from 'aws-amplify-react';
 
 
 
@@ -16,11 +17,11 @@ Storage.configure({
     }
 });
 
+let key;
+
 Storage.list('')
     .then(result => {
-        Storage.get(result[0].key)
-            .then(result => console.log(result))
-            .catch(err => console.log(err));
+        key = result
     })
     .catch(err => console.log(err));
 
@@ -29,8 +30,7 @@ Storage.list('')
 function App() {
   return (
     <div className="App">
-        TEST DEPLOY
-        <img src='https://sunriver-display-s3-prod.s3-us-west-2.amazonaws.com/public/8_towhee_2019-09-28_19_20_29.jpg' alt="Logo" />
+        <S3Image imgKey={key} />
     </div>
   );
 }
