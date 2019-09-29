@@ -14,7 +14,7 @@ Storage.configure({
     }
 });
 
-Storage.list('public/')
+Storage.list('')
     .then(result => console.log(result))
     .catch(err => console.log(err));
 
