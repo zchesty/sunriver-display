@@ -17,18 +17,18 @@ Storage.configure({
     }
 });
 
-let key = Storage.list('')
+let listKeys = Storage.list('')
     .then(result => {
         return result;
     })
     .catch(err => console.log(err));
 
 
-console.log(key);
+console.log(listKeys);
 function App() {
   return (
     <div className="App">
-        <S3Image imgKey={key} />
+        <S3Image imgKey={listKeys[0].key} />
     </div>
   );
 }
