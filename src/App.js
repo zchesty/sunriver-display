@@ -24,7 +24,7 @@ let key = Storage.list('')
     .catch(err => console.log(err));
 
 
-
+console.log(key);
 function App() {
   return (
     <div className="App">
