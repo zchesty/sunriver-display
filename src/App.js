@@ -26,6 +26,7 @@ function App() {
   return (
     <div className="App">
         TEST DEPLOY
+        <img src='https://sunriver-display-s3-prod.s3-us-west-2.amazonaws.com/public/8_towhee_2019-09-28_19_20_29.jpg' alt="Logo" />
     </div>
   );
 }
