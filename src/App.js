@@ -9,7 +9,7 @@ const getKeys = async () => {
             return Promise.resolve(result);
         })
         .catch(err => console.log(err));
-    return listKeys
+    return Promise.resolve(listKeys);
 };
 
 Auth.configure({
