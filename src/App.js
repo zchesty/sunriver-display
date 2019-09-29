@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import { Auth, Storage } from 'aws-amplify';
 
+
+
 Auth.configure({
     identityPoolId: 'us-west-2:51ea7eb7-65f7-430e-930d-bfe50c04509f',
     region: 'us-west-2'}
@@ -15,12 +17,14 @@ Storage.configure({
 });
 
 Storage.list('')
-    .then(result => console.log(result))
+    .then(result => {
+        Storage.get(result[0].key)
+            .then(result => console.log(result))
+            .catch(err => console.log(err));
+    })
     .catch(err => console.log(err));
 
-Storage.get('8_towhee_2019-09-28_19_20_29.jpg')
-    .then(result => console.log(result))
-    .catch(err => console.log(err));
+
 
 function App() {
   return (
