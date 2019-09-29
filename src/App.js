@@ -17,11 +17,9 @@ Storage.configure({
     }
 });
 
-let key;
-
-Storage.list('')
+let key = Storage.list('')
     .then(result => {
-        key = result
+        return result;
     })
     .catch(err => console.log(err));
 
