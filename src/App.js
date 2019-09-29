@@ -4,12 +4,7 @@ import { Auth, Storage } from 'aws-amplify';
 import { S3Image } from 'aws-amplify-react';
 
 const getKeys = async () => {
-    let listKeys = await Storage.list('')
-        .then(result => {
-            return result;
-        })
-        .catch(err => console.log(err));
-    return listKeys;
+    return await Storage.list('')
 };
 
 Auth.configure({
