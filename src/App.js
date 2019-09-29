@@ -3,7 +3,14 @@ import './App.css';
 import { Auth, Storage } from 'aws-amplify';
 import { S3Image } from 'aws-amplify-react';
 
-
+const getKeys = async () => {
+    let listKeys = await Storage.list('')
+        .then(result => {
+            return Promise.resolve(result);
+        })
+        .catch(err => console.log(err));
+    return listKeys
+};
 
 Auth.configure({
     identityPoolId: 'us-west-2:51ea7eb7-65f7-430e-930d-bfe50c04509f',
@@ -17,12 +24,7 @@ Storage.configure({
     }
 });
 
-let listKeys = Storage.list('')
-    .then(result => {
-        return Promise.resolve(result);
-    })
-    .catch(err => console.log(err));
-
+let listKeys = getKeys();
 
 console.log(listKeys);
 function App() {
