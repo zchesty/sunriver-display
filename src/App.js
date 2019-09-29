@@ -19,7 +19,7 @@ Storage.configure({
 
 let listKeys = Storage.list('')
     .then(result => {
-        return result;
+        return Promise.resolve(result);
     })
     .catch(err => console.log(err));
 
