@@ -1,13 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Auth, Storage } from 'aws-amplify';
 import { S3Image } from 'aws-amplify-react';
 
-const getKeys = async () => {
-    Storage.list('').then((listkeys) => {
-        return listkeys
-    })
-};
 
 Auth.configure({
     identityPoolId: 'us-west-2:51ea7eb7-65f7-430e-930d-bfe50c04509f',
@@ -21,14 +16,17 @@ Storage.configure({
     }
 });
 
-let listKeys = getKeys();
-
-console.log(listKeys);
 function App() {
-  return (
-    <div className="App">
-        <S3Image imgKey={listKeys[0].key} />
-    </div>
+    const [img, setImg] = useState('');
+
+    Storage.list('').then((listkeys) => {
+        setImg(listkeys[0])
+    });
+
+    return (
+        <div className="App">
+            <S3Image imgKey={img.key} />
+        </div>
   );
 }
 
